@@ -34,7 +34,9 @@
                     </span>
                   </div>
                   <div class="card-footer justify-content-center">
-                    <button type='submit' class="btn btn-rose btn-link btn-lg">Lets Go</button>
+                    <button type='submit' class="btn btn-rose btn-link btn-lg" :disabled='loading'>
+                      Lets Go <span class='spinner-border spinner-border-sm' v-if='loading'></span>
+                    </button>
                   </div>
                 </div>
               </form>
@@ -66,16 +68,20 @@ export default {
       username: '',
       password: '',
       error: null,
+      loading: false,
     };
   },
   methods: {
     onSubmit(e) {
       e.preventDefault();
+      this.loading = true;
       login(this.username, this.password)
         .then(() => {
+          this.loading = false;
           this.$router.push('admin');
         })
         .catch((error) => {
+          this.loading = false;
           this.error = error.message;
         });
     },

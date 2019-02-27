@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "jest": true
+  },
+  "rules": {
+    "generator-star-spacing": "off",
+    "object-curly-spacing": ["error", "always"]
+  },
+  "globals": {
+    "$": true
+  }
+}

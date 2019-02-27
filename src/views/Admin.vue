@@ -1,26 +1,44 @@
 <template>
-  <div id='administrator'>
-    <h1>hello admin</h1>
-    <button class='btn btn-sm btn-danger' @click='onSignOut'>Logout</button>
+  <div class="wrapper">
+    <side-bar></side-bar>
+    <div class='main-panel'>
+      <nav-bar></nav-bar>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import { logout } from '@/services/apiGateway';
+import Vue from 'vue';
+import LoadScript from 'vue-plugin-load-script';
+
+Vue.use(LoadScript);
 
 export default {
   name: 'Admin',
   methods: {
-    onSignOut() {
-      logout()
-        .then(() => {
-          this.$router.push('/login');
-        });
-    },
+
+  },
+  components: {
+    sideBar: () => import('@/components/admin/Sidebar'),
+    navBar: () => import('@/components/admin/Navbar'),
+  },
+  mounted() {
+    Vue.loadScript('/js/popper.min.js')
+      .then(() => {
+        Vue.loadScript('/js/bootstrap-material-design.min.js')
+          .then(() => {
+            Vue.loadScript('/js/material-dashboard.min.js');
+          });
+      });
   },
 };
 </script>
 
 <style lang='scss'>
 @import '../assets/admin/material-dashboard.scss';
+
+.main-panel {
+  min-height: 100%;
+}
 </style>

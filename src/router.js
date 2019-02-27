@@ -19,6 +19,9 @@ const router = new Router({
       name: 'admin',
       meta: { requireAuth: true },
       component: () => import('./views/Admin'),
+      children: [
+
+      ],
     },
     {
       path: '/login',
