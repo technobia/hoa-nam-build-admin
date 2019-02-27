@@ -38,6 +38,7 @@
                   </div>
                 </div>
               </form>
+              <div class='alert alert-danger' v-if='error'>{{error}}</div>
             </div>
           </div>
         </div>
@@ -55,6 +56,8 @@
 </template>
 
 <script>
+import { login } from '@/services/apiGateway';
+
 export default {
   name: 'Login',
   data() {
@@ -62,12 +65,19 @@ export default {
       year: new Date().getFullYear(),
       username: '',
       password: '',
+      error: null,
     };
   },
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      console.log(this.username, this.password);
+      login(this.username, this.password)
+        .then(() => {
+          this.$router.push('admin');
+        })
+        .catch((error) => {
+          this.error = error.message;
+        });
     },
   },
 };
