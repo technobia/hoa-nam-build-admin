@@ -33,7 +33,7 @@ export default {
 <style lang='scss' scoped>
 .sidebar {
   .sidebar-background {
-    background-image: url('../../assets/admin/img/sidebar-1.jpg');
+    background-image: url('../assets/img/sidebar-1.jpg');
   }
 }
 </style>

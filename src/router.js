@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase/app';
-import Home from './views/Home.vue';
 
 Vue.use(Router);
 
@@ -11,11 +10,6 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/admin',
       name: 'admin',
       meta: { requireAuth: true },
       component: () => import('./views/Admin'),
@@ -27,6 +21,10 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: () => import('./views/Login'),
+    },
+    {
+      path: '*',
+      redirect: { path: '/' },
     },
   ],
 });

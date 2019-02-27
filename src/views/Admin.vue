@@ -11,6 +11,7 @@
 <script>
 import Vue from 'vue';
 import LoadScript from 'vue-plugin-load-script';
+import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(LoadScript);
 
@@ -20,8 +21,8 @@ export default {
 
   },
   components: {
-    sideBar: () => import('@/components/admin/Sidebar'),
-    navBar: () => import('@/components/admin/Navbar'),
+    sideBar: () => import('@/components/Sidebar'),
+    navBar: () => import('@/components/Navbar'),
   },
   mounted() {
     Vue.loadScript('/js/popper.min.js')
@@ -36,7 +37,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '../assets/admin/material-dashboard.scss';
+@import '../assets/material-dashboard.scss';
 
 .main-panel {
   min-height: 100%;

@@ -48,7 +48,7 @@
           <div class="container">
             <div class="copyright float-right">
               &copy; {{year}}, made with <i class="material-icons">favorite</i> by
-              <a href="https://technobia.info" target="_blank">Binh Tran</a> for a better web.
+              <a href="https://crystsoft.asia" target="_blank">Crystsoft Asia</a> for a better web.
             </div>
           </div>
         </footer>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import 'bootstrap/dist/css/bootstrap.css';
 import { login } from '@/services/apiGateway';
 
 export default {
@@ -90,9 +91,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import '../assets/admin/material-dashboard.scss';
+@import '../assets/material-dashboard.scss';
 
 .login-page {
-  background-image: url('../assets/admin/img/login.jpg'); background-size: cover; background-position: top center;
+  background-image: url('../assets/img/login.jpg'); background-size: cover; background-position: top center;
 }
 </style>
