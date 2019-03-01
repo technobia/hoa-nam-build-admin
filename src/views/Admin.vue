@@ -3,7 +3,11 @@
     <side-bar></side-bar>
     <div class='main-panel'>
       <nav-bar></nav-bar>
-      <router-view></router-view>
+      <div class='content'>
+        <div class="container-fluid">
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -11,7 +15,6 @@
 <script>
 import Vue from 'vue';
 import LoadScript from 'vue-plugin-load-script';
-import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(LoadScript);
 
@@ -37,8 +40,6 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '../assets/material-dashboard.scss';
-
 .main-panel {
   min-height: 100%;
 }

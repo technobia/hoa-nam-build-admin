@@ -58,8 +58,7 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css';
-import { login } from '@/services/apiGateway';
+import { login } from '@/services/auth';
 
 export default {
   name: 'Login',
@@ -79,7 +78,7 @@ export default {
       login(this.username, this.password)
         .then(() => {
           this.loading = false;
-          this.$router.push('admin');
+          this.$router.push('/homepage');
         })
         .catch((error) => {
           this.loading = false;
@@ -91,8 +90,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import '../assets/material-dashboard.scss';
-
 .login-page {
   background-image: url('../assets/img/login.jpg'); background-size: cover; background-position: top center;
 }

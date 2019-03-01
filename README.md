@@ -1,5 +1,3 @@
-# hoa-nam-build
-
 ## Project setup
 ```
 yarn install

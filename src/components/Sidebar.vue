@@ -2,6 +2,12 @@
   <div class='sidebar' data-color='primary' data-background-color='black'>
     <div class='sidebar-wrapper'>
       <ul class='nav'>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="material-icons">dashboard</i>
+            <p>Trang chủ</p>
+          </a>
+        </li>
         <li class='nav-item'>
           <a class='nav-link' href='javascript:void(0);' @click='onSignOut'>
             <i class='material-icons'>exit_to_app</i>
@@ -15,7 +21,7 @@
 </template>
 
 <script>
-import { logout } from '@/services/apiGateway';
+import { logout } from '@/services/auth';
 
 export default {
   name: 'Sidebar',

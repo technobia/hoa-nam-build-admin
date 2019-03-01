@@ -15,9 +15,13 @@ firebase.initializeApp(config);
 //   .then(data => console.log(data));
 // firebase.auth().signInWithEmailAndPassword('technobia@gmail.com', '123456');
 
-// const db = firebase.firestore();
+export const db = firebase.firestore();
+
+export const auth = firebase.auth();
 //
 // db.collection('root').doc('home').get()
 //   .then(snapshot => console.log(snapshot.data()));
 
 // firebase.auth().signOut();
+
+export default {};

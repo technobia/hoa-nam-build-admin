@@ -1,7 +1,4 @@
-import firebase from 'firebase/app';
-
-// const db = firebase.firestore();
-const auth = firebase.auth();
+import { auth } from '@/connectDb';
 
 export const logout = () => auth.signOut();
 

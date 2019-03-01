@@ -9,6 +9,9 @@ import router from './router';
 import store from './store';
 import './connectDb';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/material-dashboard.scss';
+
 Vue.config.productionTip = false;
 
 let app = null;

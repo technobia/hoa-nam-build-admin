@@ -11,10 +11,15 @@ const router = new Router({
     {
       path: '/',
       name: 'admin',
-      meta: { requireAuth: true },
       component: () => import('./views/Admin'),
+      meta: { requireAuth: true },
+      redirect: { path: '/homepage' },
       children: [
-
+        {
+          path: '/homepage',
+          name: 'Homepage',
+          component: () => import('./views/Homepage'),
+        },
       ],
     },
     {
