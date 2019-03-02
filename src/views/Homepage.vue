@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class='row'>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.call_for_action_text }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.call_for_action_text }'>
               <label class="bmd-label-floating">Call for actions</label>
               <input type="text"
                      class="form-control"
@@ -13,7 +13,7 @@
             </div>
           </div>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.call_for_action_button }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.call_for_action_button }'>
               <label class="bmd-label-floating">Call for actions button</label>
               <input type="text"
                      class="form-control"
@@ -29,7 +29,7 @@
       <div class='card-body'>
         <div class='row'>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.our_services_text }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.our_services_text }'>
               <label class="bmd-label-floating">Our services text</label>
               <input type="text"
                      class="form-control"
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.our_services_button }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.our_services_button }'>
               <label class="bmd-label-floating">Our services button</label>
               <input type="text"
                      class="form-control"
@@ -54,7 +54,7 @@
       <div class='card-body'>
         <div class='row'>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.about_us_title }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_title }'>
               <label class="bmd-label-floating">About us text</label>
               <input type="text"
                      class="form-control"
@@ -63,7 +63,7 @@
             </div>
           </div>
           <div class='col-sm-6'>
-            <div class="form-group" :class='{ "is-filled": data.about_us_readmore_button }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_readmore_button }'>
               <label class="bmd-label-floating">About us button</label>
               <input type="text"
                      class="form-control"
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class='col-sm-12'>
-            <div class="form-group" :class='{ "is-filled": data.about_us_info }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_info }'>
               <label class="bmd-label-floating">About us info</label>
               <input type="text"
                      class="form-control"
@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class='col-sm-12'>
-            <div class="form-group" :class='{ "is-filled": data.about_us_suggest }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_suggest }'>
               <label class="bmd-label-floating">About us suggest</label>
               <input type="text"
                      class="form-control"
@@ -97,7 +97,7 @@
       <div class='card-body'>
         <div class='row'>
           <div class='col-sm-12'>
-            <div class="form-group" :class='{ "is-filled": data.slogan }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.slogan }'>
               <label class="bmd-label-floating">Slogan</label>
               <input type="text"
                      class="form-control"
@@ -113,7 +113,7 @@
       <div class='card-body'>
         <div class='row'>
           <div class='col-sm-12'>
-            <div class="form-group" :class='{ "is-filled": data.footer_about_us }'>
+            <div class="form-group bmd-form-group" :class='{ "is-filled": data.footer_about_us }'>
               <label class="bmd-label-floating">Footer about us</label>
               <input type="text"
                      class="form-control"
@@ -163,3 +163,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.card .card-body .bmd-form-group {
+  margin-top: 20px;
+}
+</style>

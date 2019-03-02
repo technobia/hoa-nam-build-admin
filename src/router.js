@@ -20,6 +20,11 @@ const router = new Router({
           name: 'Homepage',
           component: () => import('./views/Homepage'),
         },
+        {
+          path: '/images',
+          name: 'ImagesManage',
+          component: () => import('./views/ImagesManage'),
+        },
       ],
     },
     {

@@ -33,6 +33,7 @@ export default {
         Vue.loadScript('/js/bootstrap-material-design.min.js')
           .then(() => {
             Vue.loadScript('/js/material-dashboard.min.js');
+            Vue.loadScript('/js/jasny-bootstrap.min.js');
           });
       });
   },

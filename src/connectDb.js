@@ -1,4 +1,7 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage';
 
 const config = {
   apiKey: 'AIzaSyCAOq3_p_NY-5lKQ4_-8tNhHI15yMrNH_E',
@@ -18,10 +21,7 @@ firebase.initializeApp(config);
 export const db = firebase.firestore();
 
 export const auth = firebase.auth();
-//
-// db.collection('root').doc('home').get()
-//   .then(snapshot => console.log(snapshot.data()));
 
-// firebase.auth().signOut();
+export const storage = firebase.storage().ref();
 
 export default {};

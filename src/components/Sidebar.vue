@@ -3,10 +3,16 @@
     <div class='sidebar-wrapper'>
       <ul class='nav'>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <router-link class="nav-link" to="/homepage">
             <i class="material-icons">dashboard</i>
             <p>Trang chủ</p>
-          </a>
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/images">
+            <i class="material-icons">images</i>
+            <p>Hình ảnh</p>
+          </router-link>
         </li>
         <li class='nav-item'>
           <a class='nav-link' href='javascript:void(0);' @click='onSignOut'>
