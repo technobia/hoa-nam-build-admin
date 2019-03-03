@@ -9,4 +9,8 @@ export const setDocuments = (collection, document, data) => db.collection(collec
 
 export const addDocument = (collection, data) => db.collection(collection).add(data);
 
+export const addDocumentWithId = (collection, documentId, data) => db.collection(collection).doc(documentId).set(data);
+
+export const deleteDocument = (collection, documentId) => db.collection(collection).doc(documentId).delete();
+
 export default {};

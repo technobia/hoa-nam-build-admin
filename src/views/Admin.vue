@@ -34,6 +34,7 @@ export default {
           .then(() => {
             Vue.loadScript('/js/material-dashboard.min.js');
             Vue.loadScript('/js/jasny-bootstrap.min.js');
+            Vue.loadScript('/js/sweetalert2.js');
           });
       });
   },

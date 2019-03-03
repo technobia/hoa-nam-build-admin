@@ -1,6 +1,7 @@
 /* eslint-disable */
-import { uploadFile, getDownloadURL } from '@/services/storage';
-import { addDocument, getCollections } from '@/services/collections';
+import uid from 'uuid4';
+import { uploadFile, getDownloadURL, deleteFile } from '@/services/storage';
+import { addDocumentWithId, getCollections, deleteDocument } from '@/services/collections';
 
 const dest = {
   collectionName: 'images'
@@ -37,7 +38,8 @@ const actions = {
         const name = data.name;
         getDownloadURL(name)
           .then(url => {
-            addDocument(dest.collectionName, { name, url })
+            const id = uid();
+            addDocumentWithId(dest.collectionName, id, { id, name, url })
               .then(resp => {
                 commit('setUploading', false);
                 commit('setUploadSuccess', true);
@@ -70,6 +72,10 @@ const actions = {
         commit('setLoading', false);
         console.log(err);
       })
+  },
+  deleteImage({ commit, dispatch }, { fullpath, id }) {
+    deleteFile(fullpath);
+    deleteDocument(dest.collectionName, id);
   }
 };
 

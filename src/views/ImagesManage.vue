@@ -1,7 +1,7 @@
 <template>
   <div class='row'>
     <div class='col-lg-3'>
-      <uploader></uploader>
+      <uploader v-on:after-uploaded='onAfterUploaded'></uploader>
     </div>
     <div class='col-lg-9'>
       <div class='text-center py-5' v-if='loading'>
@@ -24,7 +24,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.url}}</td>
                 <td class="td-actions">
-                  <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link">
+                  <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link" @click='onClickDelete(item)'>
                     <i class="material-icons">close</i>
                   </button>
                 </td>
@@ -60,6 +60,43 @@ export default {
   methods: {
     onRefresh() {
       this.$store.dispatch('getImages');
+    },
+    onClickDelete(item) {
+      swal({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this imaginary file!',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, keep it',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+      }).then((willDelete) => {
+        if (willDelete.dismiss === 'cancel') {
+          swal({
+            title: 'Cancelled',
+            text: 'Your imaginary file is safe :)',
+            type: 'error',
+            confirmButtonClass: 'btn btn-info',
+            buttonsStyling: false,
+          }).catch(swal.noop);
+        } else {
+          this.$store.dispatch('deleteImage', { fullpath: item.name, id: item.id });
+          swal({
+            title: 'Deleted!',
+            text: 'Your imaginary file has been deleted.',
+            type: 'success',
+            confirmButtonClass: 'btn btn-success',
+            buttonsStyling: false,
+          }).then(() => {
+            this.onRefresh();
+          }).catch(swal.noop);
+        }
+      });
+    },
+    onAfterUploaded() {
+      this.onRefresh();
     },
   },
   mounted() {

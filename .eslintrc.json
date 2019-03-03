@@ -13,6 +13,7 @@
     "object-curly-spacing": ["error", "always"]
   },
   "globals": {
-    "$": true
+    "$": true,
+    "swal": true
   }
 }

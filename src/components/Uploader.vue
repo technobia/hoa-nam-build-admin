@@ -6,12 +6,12 @@
       </div>
       <div class="fileinput-preview fileinput-exists thumbnail"></div>
       <div>
-        <span class="btn btn-rose btn-round btn-file">
+        <span class="btn btn-rose btn-round btn-file" :class='{ disabled: loading }'>
           <span class="fileinput-new">Select image</span>
           <span class="fileinput-exists">Change</span>
           <input type="file" name="..." ref='file' />
         </span>
-        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput" ref='btnRemove'>
+        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput" ref='btnRemove' :class='{ disabled: loading }'>
           <i class="fa fa-times"></i> Remove
         </a>
         <button class='btn btn-success btn-round fileinput-exists' @click='onUploadImage' :disabled='loading'>
@@ -47,6 +47,7 @@ export default {
       if (val && !oldVal) {
         this.file = [];
         this.$refs.btnRemove.click();
+        this.$emit('after-uploaded');
       }
     },
   },
