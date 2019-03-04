@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import firebase from 'firebase/app';
+import { auth } from '@/connectDb';
 
 Vue.use(Router);
 
@@ -25,6 +25,11 @@ const router = new Router({
           name: 'ImagesManage',
           component: () => import('./views/ImagesManage'),
         },
+        {
+          path: '/projects',
+          name: 'Projects',
+          component: () => import('./views/Projects'),
+        },
       ],
     },
     {
@@ -40,8 +45,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.authentication)) {
-    const currentUser = firebase.auth().currentUser;
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    const currentUser = auth.currentUser;
     if (!currentUser) {
       next({
         path: '/login',

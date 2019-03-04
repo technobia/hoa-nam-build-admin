@@ -1,14 +1,20 @@
 <template>
-  <div class='sidebar' data-color='primary' data-background-color='black'>
+  <div class='sidebar' data-color='rose' data-background-color='black'>
     <div class='sidebar-wrapper'>
       <ul class='nav'>
-        <li class="nav-item">
+        <li class="nav-item" :class='{ active: getActiveLink("/homepage") }'>
           <router-link class="nav-link" to="/homepage">
             <i class="material-icons">dashboard</i>
-            <p>Trang chủ</p>
+            <p>Quản lý nội dung</p>
           </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class='{ active: getActiveLink("/projects") }'>
+          <router-link class="nav-link" to="/projects">
+            <i class="material-icons">list</i>
+            <p>Dự án</p>
+          </router-link>
+        </li>
+        <li class="nav-item" :class='{ active: getActiveLink("/images") }'>
           <router-link class="nav-link" to="/images">
             <i class="material-icons">images</i>
             <p>Hình ảnh</p>
@@ -37,6 +43,9 @@ export default {
         .then(() => {
           this.$router.push('/login');
         });
+    },
+    getActiveLink(url) {
+      return this.$route.fullPath === url;
     },
   },
 };

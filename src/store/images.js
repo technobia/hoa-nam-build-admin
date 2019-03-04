@@ -21,10 +21,10 @@ const mutations = {
   setUploadSuccess(state, success) {
     state.uploadSuccess = success
   },
-  setLoading(state, loading) {
+  setImagesLoading(state, loading) {
     state.loading = loading
   },
-  setCollections(state, collections) {
+  setImageCollections(state, collections) {
     state.collections = collections
   },
 };
@@ -60,16 +60,16 @@ const actions = {
       })
   },
   getImages({ commit }) {
-    commit('setLoading', true);
+    commit('setImagesLoading', true);
     getCollections(dest.collectionName)
       .then(resp => {
-        commit('setLoading', false);
+        commit('setImagesLoading', false);
         const collections = [];
         resp.forEach(doc => collections.push(doc.data()));
-        commit('setCollections', collections);
+        commit('setImageCollections', collections);
       })
       .catch((err) => {
-        commit('setLoading', false);
+        commit('setImagesLoading', false);
         console.log(err);
       })
   },
