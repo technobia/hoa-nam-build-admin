@@ -30,6 +30,11 @@ const router = new Router({
           name: 'Projects',
           component: () => import('./views/Projects'),
         },
+        {
+          path: '/banners',
+          name: 'Banners',
+          component: () => import('./views/Banners'),
+        },
       ],
     },
     {

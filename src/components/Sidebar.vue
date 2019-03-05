@@ -20,6 +20,12 @@
             <p>Hình ảnh</p>
           </router-link>
         </li>
+        <li class="nav-item" :class='{ active: getActiveLink("/banners") }'>
+          <router-link class="nav-link" to="/banners">
+            <i class="material-icons">collections</i>
+            <p>Banners</p>
+          </router-link>
+        </li>
         <li class='nav-item'>
           <a class='nav-link' href='javascript:void(0);' @click='onSignOut'>
             <i class='material-icons'>exit_to_app</i>
