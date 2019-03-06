@@ -24,11 +24,11 @@ export default {
       commit('setBannerAdding', true);
       const id = uid();
       addDocumentWithId(state.collectionName, id, { ...data, id })
-        .then((resp) => {
+        .then(() => {
           commit('setBannerAdding', false);
           dispatch('getBannerData');
         })
-        .catch((err) => {
+        .catch(() => {
           commit('setBannerAdding', false);
         });
     },
