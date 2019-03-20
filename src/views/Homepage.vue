@@ -16,6 +16,11 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#services" data-toggle="tab">
+                  Dịch vụ <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#contact" data-toggle="tab">
                   Liên hệ <div class="ripple-container"></div>
                 </a>
@@ -156,6 +161,28 @@
                             :value='data.about_us_part_2 || ""'
                             :config='editor.config'
                             @input='value => updateField("about_us_part_2", value)'></ckeditor>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="services">
+            <div class='row'>
+              <div class='col-sm-12'>
+                <div class="form-group bmd-form-group" :class='{ "is-filled": data.service_heading }'>
+                  <label class="bmd-label-floating">Service heading</label>
+                  <input type="text"
+                         class="form-control"
+                         :value='data.service_heading'
+                         @input='e => updateField("service_heading", e.target.value)'/>
+                </div>
+              </div>
+              <div class='col-sm-12'>
+                <div class="form-group bmd-form-group is-filled">
+                  <label class="bmd-label-floating">Service body</label>
+                  <ckeditor :editor="editor.type"
+                            :value='data.service_body || ""'
+                            :config='editor.config'
+                            @input='value => updateField("service_body", value)'></ckeditor>
                 </div>
               </div>
             </div>
