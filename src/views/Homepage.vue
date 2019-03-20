@@ -141,21 +141,21 @@
                 </div>
               </div>
               <div class='col-sm-12'>
-                <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_part_1 }'>
+                <div class="form-group bmd-form-group is-filled">
                   <label class="bmd-label-floating">About us part 1</label>
-                  <input type="text"
-                         class="form-control"
-                         :value='data.about_us_part_1'
-                         @input='e => updateField("about_us_part_1", e.target.value)'/>
+                  <ckeditor :editor="editor.type"
+                            :value='data.about_us_part_1 || ""'
+                            :config='editor.config'
+                            @input='value => updateField("about_us_part_1", value)'></ckeditor>
                 </div>
               </div>
               <div class='col-sm-12'>
-                <div class="form-group bmd-form-group" :class='{ "is-filled": data.about_us_part_2 }'>
+                <div class="form-group bmd-form-group is-filled">
                   <label class="bmd-label-floating">About us part 2</label>
-                  <input type="text"
-                         class="form-control"
-                         :value='data.about_us_part_2'
-                         @input='e => updateField("about_us_part_2", e.target.value)'/>
+                  <ckeditor :editor="editor.type"
+                            :value='data.about_us_part_2 || ""'
+                            :config='editor.config'
+                            @input='value => updateField("about_us_part_2", value)'></ckeditor>
                 </div>
               </div>
             </div>
@@ -216,8 +216,20 @@
 </template>
 
 <script>
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 export default {
   name: 'Homepage',
+  data() {
+    return {
+      editor: {
+        type: ClassicEditor,
+        config: {
+          toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+        },
+      },
+    };
+  },
   computed: {
     data() {
       return this.$store.state.admin.homepage;
@@ -243,8 +255,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .card .card-body .bmd-form-group {
   margin-top: 20px;
+}
+
+.ck-editor__editable {
+  min-height: 250px;
 }
 </style>

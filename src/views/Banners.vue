@@ -20,9 +20,9 @@
             <div class='card'>
               <div class="card-header card-header-rose card-header-icon">
                 <div class="card-icon">
-                  <i class="material-icons">mail_outline</i>
+                  <i class="material-icons">image</i>
                 </div>
-                <h4 class="card-title">Banner trang chủ</h4>
+                <h4 class="card-title">Banner trang chủ <span class='small text-success'>(1920px x 550px)</span></h4>
               </div>
               <div class='card-body'>
                 <button class='btn btn-success' @click='showModal("banner-form-modal", "home-banner")'>
@@ -59,9 +59,9 @@
             <div class='card'>
               <div class="card-header card-header-rose card-header-icon">
                 <div class="card-icon">
-                  <i class="material-icons">mail_outline</i>
+                  <i class="material-icons">image</i>
                 </div>
-                <h4 class="card-title">Đối tác</h4>
+                <h4 class="card-title">Đối tác <span class='small text-success'>(163px x 86px)</span></h4>
               </div>
               <div class='card-body'>
                 <button class='btn btn-success' @click='showModal("banner-form-modal", "client")'>
@@ -97,17 +97,45 @@
         </div>
       </div>
       <div class="tab-pane" id="aboutUs">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Location of the product</h4>
-            <p class="card-category">
-              More information here
-            </p>
-          </div>
-          <div class="card-body">
-            Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
-            <br>
-            <br> Dramatically maintain clicks-and-mortar solutions without functional solutions.
+        <div class='row'>
+          <div class='col-lg-6'>
+            <div class='card'>
+              <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">image</i>
+                </div>
+                <h4 class="card-title">Giới thiệu <span class='small text-success'>(750px x 320px)</span></h4>
+              </div>
+              <div class='card-body'>
+                <button class='btn btn-success' @click='showModal("banner-form-modal", "about_us")'>
+                  <i class='material-icons'>add</i>&nbsp;Add
+                </button>
+                <table class="table table-shopping">
+                  <colgroup>
+                    <col width='100px'>
+                    <col>
+                  </colgroup>
+                  <tbody>
+                  <tr v-for='item in aboutUsBanners' :key='item.id'>
+                    <td class='text-center'>
+                      <div class="img-container">
+                        <img :src='item.img' alt="...">
+                      </div>
+                    </td>
+                    <td>{{item.heading}}</td>
+                    <td>{{item.title}}</td>
+                    <td>
+                      <div class='d-flex justify-content-end'>
+                        <button class="btn btn-link px-0" @click='onDeleteBanner(item)'>
+                          <i class="material-icons">close</i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -140,6 +168,9 @@ export default {
     },
     clientBanners() {
       return this.collections.filter(o => o.type === 'client');
+    },
+    aboutUsBanners() {
+      return this.collections.filter(o => o.type === 'about_us');
     },
   },
   methods: {
