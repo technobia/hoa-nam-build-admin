@@ -1,5 +1,6 @@
 /* eslint-disable */
 import uid from 'uuid4';
+import { db } from '@/connectDb';
 import { uploadFile, getDownloadURL, deleteFile } from '@/services/storage';
 import { addDocumentWithId, getCollections, deleteDocument } from '@/services/collections';
 
@@ -61,7 +62,9 @@ const actions = {
   },
   getImages({ commit }) {
     commit('setImagesLoading', true);
-    getCollections(dest.collectionName)
+    db.collection(dest.collectionName)
+      .orderBy('name', 'asc')
+      .get()
       .then(resp => {
         commit('setImagesLoading', false);
         const collections = [];

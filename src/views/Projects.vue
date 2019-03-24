@@ -87,7 +87,7 @@
         <ckeditor :editor="editor.type" v-model="modalData.description" :config='editor.config'></ckeditor>
       </div>
       <div class="form-group bmd-form-group is-filled">
-        <label>Image URL</label>
+        <label>Image URL <span class='text-success small'>(360px x 240px)</span></label>
         <input type="text"
                class="form-control"
                :value='modalData.img'

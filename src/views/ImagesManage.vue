@@ -16,6 +16,14 @@
             <table class="table table-shopping">
               <tbody>
               <tr v-for='(item, index) in collections' :key='index'>
+                <td class="td-actions d-flex">
+                  <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link" @click='onClickDelete(item)'>
+                    <i class="material-icons">close</i>
+                  </button>
+                  <button class='btn btn-link' @click='copyToClipboard(item.url)' title='Copy to clipboard'>
+                    <i class='material-icons'>file_copy</i>
+                  </button>
+                </td>
                 <td>
                   <div class="img-container">
                     <img :src='item.url' alt="...">
@@ -23,11 +31,6 @@
                 </td>
                 <td>{{item.name}}</td>
                 <td>{{item.url}}</td>
-                <td class="td-actions">
-                  <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link" @click='onClickDelete(item)'>
-                    <i class="material-icons">close</i>
-                  </button>
-                </td>
               </tr>
               </tbody>
             </table>
@@ -97,6 +100,14 @@ export default {
     },
     onAfterUploaded() {
       this.onRefresh();
+    },
+    copyToClipboard(str) {
+      const el = document.createElement('textarea');
+      el.value = str;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
     },
   },
   mounted() {
